@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import edu.artisty.entities.Article;
 import edu.artisty.entities.Commentaire;
+import edu.artisty.entities.LikeDislike;
+import java.util.Arrays;
 
 /**
  *
@@ -119,5 +121,37 @@ public class CommentaireService implements IService<Commentaire> {
         }
         return commentaire;
     }
+     public void filtrerMotsInappropries() {
+    List<String> motsInappropries = Arrays.asList("drogue", "violence", "crime","kill");
+
+    // Récupérer tous les articles
+    List<Commentaire> commentaire = getAll();
+
+    // Parcourir chaque article et filtrer les mots inappropriés
+    commentaire.forEach(article -> {
+        String content = article.getContentCommentaire();
+        for (String mot : motsInappropries) {
+            String remplacement = "";
+            for (int i = 0; i < mot.length(); i++) {
+                remplacement += "*";
+            }
+            content = content.replaceAll(mot, remplacement);
+        }
+        article.setContentCommentaire(content);
+
+        // Mettre à jour l'article dans la base de données
+        String query = "UPDATE ARTICLE SET content_article = ? WHERE id_article = ?";
+        try {
+            PreparedStatement ps = cnx.prepareStatement(query);
+            ps.setString(1, article.getContentCommentaire());
+            ps.setInt(2, article.getIdCommentaire());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    });
+
+    System.out.println("Mots inappropriés filtrés avec succès");
+}
 
 }
