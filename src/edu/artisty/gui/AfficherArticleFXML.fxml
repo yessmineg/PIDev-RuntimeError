@@ -24,7 +24,7 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="320.0" layoutY="14.0" prefHeight="21.0" prefWidth="147.0" text="The Muse">
+      <Label layoutX="343.0" layoutY="26.0" prefHeight="21.0" prefWidth="147.0" text="The Muse">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Label>
@@ -57,7 +57,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="image" layoutX="692.0" layoutY="114.0" prefHeight="39.0" prefWidth="225.0" />
+      <TextField layoutX="692.0" layoutY="114.0" prefHeight="39.0" prefWidth="225.0" />
       <Button layoutX="592.0" layoutY="613.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" style="-fx-hgap: 5px; -fx-padding: 5px; -fx-background-color: #678263; -fx-background-radius: 50px;" text="Modify Article" textFill="#fffdfd" textOverrun="CLIP">
          <opaqueInsets>
             <Insets />
@@ -67,7 +67,7 @@
          </font>
       </Button>
       <TextField fx:id="content" layoutX="340.0" layoutY="339.0" prefHeight="186.0" prefWidth="225.0" />
-      <Button layoutX="971.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="128.0" style="-fx-hgap: 5px; -fx-padding: 5px; -fx-background-color: #678263; -fx-background-radius: 50px;" text="upload photo" textFill="#fffdfd" textOverrun="CLIP">
+      <Button fx:id="searchButton" layoutX="971.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="128.0" style="-fx-hgap: 5px; -fx-padding: 5px; -fx-background-color: #678263; -fx-background-radius: 50px;" text="upload photo" textFill="#fffdfd" textOverrun="CLIP">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -106,5 +106,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
+      <Label fx:id="imageLabel" layoutX="682.0" layoutY="54.0" prefHeight="39.0" prefWidth="225.0" text="Label" />
    </children>
 </AnchorPane>

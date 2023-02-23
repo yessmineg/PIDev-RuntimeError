@@ -157,7 +157,7 @@ try (PreparedStatement statement = cnx.prepareStatement(sql)) {
         alert.showAndWait();
     }
     }
-
+    
     @Override
     public void modifier(Article article) {
         String query = "UPDATE ARTICLE SET titre_article = '" + article.getTitreArticle() + "', date_article= '"
